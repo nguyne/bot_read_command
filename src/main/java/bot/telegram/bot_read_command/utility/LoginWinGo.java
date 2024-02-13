@@ -15,11 +15,12 @@ public class LoginWinGo {
         WebDriver driver = WebDriverUtility.getDriver();
         WebDriverWait wait = WebDriverUtility.getWebDriverWait();
         try {
-            driver.get("https://vn168a.com/#/login");
+            driver.get("link web");
+			//login web
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.name("userNumber")));
-            element.sendKeys("398869150");
+            element.sendKeys("userNumber");
             WebElement passwordInput = driver.findElement(By.cssSelector("input[type='password']"));
-            passwordInput.sendKeys("0398869150az");
+            passwordInput.sendKeys("password");
             Thread.sleep(3*1000);
             WebElement loginButton = driver.findElement(By.cssSelector(".signIn__container-button button"));
             loginButton.click();
@@ -30,10 +31,9 @@ public class LoginWinGo {
             System.out.println("Text of the button: " + buttonText);
             confirmButton.click();
 
-            WebElement winGoElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Win Go']")));
+            WebElement winGoElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//")));
             winGoElement.click();
             Thread.sleep(1000);
-            System.out.println("Đã Vào trang Win Go");
         }catch (Exception e){}
 
     }
